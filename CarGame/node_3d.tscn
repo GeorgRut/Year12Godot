@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvf07ggin8d7"]
+
+[ext_resource type="PackedScene" uid="uid://cy8y2ap2li26m" path="res://Models/Bus.glb" id="1_abcuj"]
+[ext_resource type="Script" path="res://node_3d.gd" id="1_pl31i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trld5"]
+
+[node name="BUS" type="CharacterBody3D"]
+script = ExtResource("1_pl31i")
+
+[node name="Bus2" parent="." instance=ExtResource("1_abcuj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.233939, 1.70815, 6.24018)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_trld5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99, 1.958, 1.927)

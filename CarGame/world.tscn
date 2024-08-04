@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmdxomxr0xfk1"]
+
+[ext_resource type="PackedScene" uid="uid://cjvf07ggin8d7" path="res://node_3d.tscn" id="1_38m50"]
+[ext_resource type="Script" path="res://road.gd" id="2_q0tw7"]
+[ext_resource type="PackedScene" uid="uid://dvwlva7o8qx7p" path="res://road.tscn" id="3_useyh"]
+
+[node name="World" type="Node3D"]
+
+[node name="BUS" parent="." instance=ExtResource("1_38m50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138522, -0.564309, 2.37061)
+
+[node name="Roads" type="Node3D" parent="."]
+script = ExtResource("2_q0tw7")
+
+[node name="road" parent="Roads" instance=ExtResource("3_useyh")]
+
+[node name="road2" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="road3" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -120)
+
+[node name="road4" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -180)
+
+[node name="road5" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -240)
+
+[node name="road6" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -300)
+
+[node name="road7" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -360)
+
+[node name="road8" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -420)
+
+[node name="road9" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -480)
+
+[node name="road10" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -540)
+
+[node name="road11" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -600)
+
+[node name="road12" parent="Roads" instance=ExtResource("3_useyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -660)

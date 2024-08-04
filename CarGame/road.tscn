@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvwlva7o8qx7p"]
+
+[ext_resource type="PackedScene" uid="uid://8rvjhfbw8o40" path="res://Models/road.glb" id="1_71n2n"]
+
+[node name="road" instance=ExtResource("1_71n2n")]
+
+[node name="Cube_026" parent="." index="0"]
+transform = Transform3D(-1.60927e-06, 0, 4, 0, 0.0821021, 0, -15, 0, -4.29138e-07, 0, 0, 0)
