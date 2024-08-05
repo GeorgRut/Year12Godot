@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm2g1fgtn3ahr"]
+
+[ext_resource type="PackedScene" uid="uid://diewjbr6s63lq" path="res://Models/roo.glb" id="1_3hspy"]
+[ext_resource type="Script" path="res://roo.gd" id="1_y5om3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4k7j"]
+size = Vector3(0.530792, 1.97571, 1)
+
+[node name="roo" type="Area3D"]
+script = ExtResource("1_y5om3")
+
+[node name="roo" parent="." instance=ExtResource("1_3hspy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000289917, 1.19485, 0)
+shape = SubResource("BoxShape3D_i4k7j")
+
+[node name="Timer" type="Timer" parent="."]
