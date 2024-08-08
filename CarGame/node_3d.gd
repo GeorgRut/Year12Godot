@@ -25,3 +25,7 @@ func _physics_process(delta):
 		
 
 	move_and_slide()
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.

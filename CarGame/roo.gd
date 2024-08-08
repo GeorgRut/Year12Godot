@@ -1,6 +1,7 @@
 extends Area3D
 
-@export var speed : float = 1.0
+@export var speed : float = 30
 
 func _physics_process(delta: float) -> void:
-	translate(Vector3(0, 0, -speed * delta))
+	var move = speed * delta
+	translate(transform.basis.z * move )

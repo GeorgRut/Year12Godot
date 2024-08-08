@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7hsa2akob1n0"
+path="res://.godot/imported/Bus.obj-95ea44a00bc7f14a0707cb4ba5dc03ec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bus.obj-95ea44a00bc7f14a0707cb4ba5dc03ec.mesh"]
+
+source_file="res://Models/Bus.obj"
+dest_files=["res://.godot/imported/Bus.obj-95ea44a00bc7f14a0707cb4ba5dc03ec.mesh", "res://.godot/imported/Bus.obj-95ea44a00bc7f14a0707cb4ba5dc03ec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

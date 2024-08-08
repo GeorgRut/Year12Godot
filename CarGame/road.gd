@@ -2,7 +2,7 @@ extends Node3D
 
 var length = 60
 var distance_moved = 0
-var speed = 10
+var speed = 30
 
 func _process(delta):
 	var move = delta * speed

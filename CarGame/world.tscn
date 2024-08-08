@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmdxomxr0xfk1"]
+[gd_scene load_steps=6 format=3 uid="uid://bmdxomxr0xfk1"]
 
 [ext_resource type="PackedScene" uid="uid://cjvf07ggin8d7" path="res://node_3d.tscn" id="1_38m50"]
 [ext_resource type="Script" path="res://road.gd" id="2_q0tw7"]
+[ext_resource type="PackedScene" uid="uid://dm2g1fgtn3ahr" path="res://roo.tscn" id="2_tonhv"]
 [ext_resource type="PackedScene" uid="uid://dvwlva7o8qx7p" path="res://road.tscn" id="3_useyh"]
+[ext_resource type="Script" path="res://RooSpawner.gd" id="5_p86wt"]
 
 [node name="World" type="Node3D"]
 
 [node name="BUS" parent="." instance=ExtResource("1_38m50")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138522, -0.564309, 2.37061)
+
+[node name="roo" parent="." instance=ExtResource("2_tonhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -68.2489)
 
 [node name="Roads" type="Node3D" parent="."]
 script = ExtResource("2_q0tw7")
@@ -46,3 +51,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -600)
 
 [node name="road12" parent="Roads" instance=ExtResource("3_useyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -660)
+
+[node name="RooSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -704.447)
+script = ExtResource("5_p86wt")
+
+[node name="Timer" type="Timer" parent="RooSpawner"]
+autostart = true
+
+[connection signal="timeout" from="RooSpawner/Timer" to="RooSpawner" method="_on_timer_timeout"]
