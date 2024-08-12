@@ -1,12 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmdxomxr0xfk1"]
+[gd_scene load_steps=13 format=3 uid="uid://bmdxomxr0xfk1"]
 
+[ext_resource type="Texture2D" uid="uid://yrof6knkr8do" path="res://Scenes/syferfontein_18d_clear_2k.hdr" id="1_2e1bu"]
 [ext_resource type="PackedScene" uid="uid://cjvf07ggin8d7" path="res://node_3d.tscn" id="1_38m50"]
 [ext_resource type="Script" path="res://road.gd" id="2_q0tw7"]
 [ext_resource type="PackedScene" uid="uid://dm2g1fgtn3ahr" path="res://roo.tscn" id="2_tonhv"]
 [ext_resource type="PackedScene" uid="uid://dvwlva7o8qx7p" path="res://road.tscn" id="3_useyh"]
-[ext_resource type="Script" path="res://RooSpawner.gd" id="5_p86wt"]
+[ext_resource type="Script" path="res://Spawner.gd" id="5_p86wt"]
+[ext_resource type="PackedScene" uid="uid://m3tqsl4tw60" path="res://Scenes/desert.tscn" id="6_dnp3s"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q5j4j"]
+panorama = ExtResource("1_2e1bu")
+
+[sub_resource type="Sky" id="Sky_mrirg"]
+sky_material = SubResource("PanoramaSkyMaterial_q5j4j")
+
+[sub_resource type="Environment" id="Environment_m0ey5"]
+background_mode = 2
+sky = SubResource("Sky_mrirg")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqtn3"]
+albedo_color = Color(0.443137, 0.145098, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tu6s1"]
+material = SubResource("StandardMaterial3D_cqtn3")
+size = Vector2(306.875, 1000)
+orientation = 1
 
 [node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m0ey5")
 
 [node name="BUS" parent="." instance=ExtResource("1_38m50")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138522, -0.564309, 2.37061)
@@ -53,10 +82,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -600)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -660)
 
 [node name="RooSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -704.447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -109.674)
 script = ExtResource("5_p86wt")
+OBJECT = ExtResource("2_tonhv")
+random_gap = 7.0
 
 [node name="Timer" type="Timer" parent="RooSpawner"]
 autostart = true
 
+[node name="DesertSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.1955, 0, -261.81)
+script = ExtResource("5_p86wt")
+OBJECT = ExtResource("6_dnp3s")
+random_gap = 20.0
+
+[node name="Timer" type="Timer" parent="DesertSpawner"]
+wait_time = 0.5
+autostart = true
+
+[node name="DesertSpawner2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.5945, 0, -200.016)
+script = ExtResource("5_p86wt")
+OBJECT = ExtResource("6_dnp3s")
+random_gap = 20.0
+
+[node name="Timer" type="Timer" parent="DesertSpawner2"]
+wait_time = 0.5
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 76.0656)
+mesh = SubResource("QuadMesh_tu6s1")
+
 [connection signal="timeout" from="RooSpawner/Timer" to="RooSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="DesertSpawner/Timer" to="DesertSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="DesertSpawner2/Timer" to="DesertSpawner2" method="_on_timer_timeout"]

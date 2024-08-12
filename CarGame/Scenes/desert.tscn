@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://m3tqsl4tw60"]
+
+[ext_resource type="PackedScene" uid="uid://pntou0ee6hgv" path="res://Models/Desert/untitled.glb" id="1_k0808"]
+[ext_resource type="Script" path="res://Scenes/desert.gd" id="2_smkse"]
+
+[node name="Desert" instance=ExtResource("1_k0808")]
+script = ExtResource("2_smkse")
