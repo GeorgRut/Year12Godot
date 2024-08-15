@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvwlva7o8qx7p"]
+[gd_scene load_steps=4 format=3 uid="uid://dvwlva7o8qx7p"]
 
 [ext_resource type="PackedScene" uid="uid://8rvjhfbw8o40" path="res://Models/road.glb" id="1_71n2n"]
+[ext_resource type="PackedScene" uid="uid://cb5svtbasy05o" path="res://Models/Desert/bollar.glb" id="2_e7bkg"]
+[ext_resource type="PackedScene" uid="uid://d1japq1roawkk" path="res://Models/newsign.glb" id="3_2xohk"]
 
 [node name="road" instance=ExtResource("1_71n2n")]
 
 [node name="Cube_026" parent="." index="0"]
 transform = Transform3D(-1.60927e-06, 0, 4, 0, 0.0821021, 0, -15, 0, -4.29138e-07, 0, 0, 0)
+
+[node name="bollar" parent="." index="1" instance=ExtResource("2_e7bkg")]
+transform = Transform3D(0.368817, 0, 1.37644, 0, 1.425, 0, -1.37644, 0, 0.368817, 8.46205, 1.92149, 0)
+
+[node name="bollar2" parent="." index="2" instance=ExtResource("2_e7bkg")]
+transform = Transform3D(-0.368817, 0, -1.37644, 0, 1.425, 0, 1.37644, 0, -0.368817, -8.16192, 1.92149, 0)
+
+[node name="newsign" parent="." index="3" instance=ExtResource("3_2xohk")]
+transform = Transform3D(0.0790854, 0, -0.996868, 0, 1, 0, 0.996868, 0, 0.0790854, -2.82799, 1.65295, -41.7417)

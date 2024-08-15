@@ -29,3 +29,11 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	pass # Replace with function body.
+
+
+func _on_area_3d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	pass # Replace with function body.
+
+
+func _on_outofbounds_body_entered(body):
+	pass # Replace with function body.

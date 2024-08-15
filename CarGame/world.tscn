@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmdxomxr0xfk1"]
+[gd_scene load_steps=16 format=3 uid="uid://bmdxomxr0xfk1"]
 
 [ext_resource type="Texture2D" uid="uid://yrof6knkr8do" path="res://Scenes/syferfontein_18d_clear_2k.hdr" id="1_2e1bu"]
 [ext_resource type="PackedScene" uid="uid://cjvf07ggin8d7" path="res://node_3d.tscn" id="1_38m50"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dvwlva7o8qx7p" path="res://road.tscn" id="3_useyh"]
 [ext_resource type="Script" path="res://Spawner.gd" id="5_p86wt"]
 [ext_resource type="PackedScene" uid="uid://m3tqsl4tw60" path="res://Scenes/desert.tscn" id="6_dnp3s"]
+[ext_resource type="PackedScene" uid="uid://dnwscyof56ae4" path="res://Scenes/powerpole.tscn" id="8_74wt6"]
+[ext_resource type="Script" path="res://Area3D.gd" id="9_tj1lj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q5j4j"]
 panorama = ExtResource("1_2e1bu")
@@ -27,6 +29,9 @@ albedo_color = Color(0.443137, 0.145098, 0, 1)
 material = SubResource("StandardMaterial3D_cqtn3")
 size = Vector2(306.875, 1000)
 orientation = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxv8f"]
+size = Vector3(2.16, 6.125, 15.59)
 
 [node name="World" type="Node3D"]
 
@@ -110,10 +115,39 @@ random_gap = 20.0
 wait_time = 0.5
 autostart = true
 
+[node name="PowerpoleSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0632, 4.72589, -566.041)
+script = ExtResource("5_p86wt")
+OBJECT = ExtResource("8_74wt6")
+
+[node name="Timer" type="Timer" parent="PowerpoleSpawner"]
+wait_time = 4.0
+autostart = true
+
+[node name="PowerpoleSpawner2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7931, 4.72589, -526.464)
+script = ExtResource("5_p86wt")
+OBJECT = ExtResource("8_74wt6")
+
+[node name="Timer" type="Timer" parent="PowerpoleSpawner2"]
+wait_time = 4.0
+autostart = true
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 76.0656)
 mesh = SubResource("QuadMesh_tu6s1")
 
+[node name="outofbounds" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84451, 0.955606, 8.62661)
+script = ExtResource("9_tj1lj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="outofbounds"]
+shape = SubResource("BoxShape3D_xxv8f")
+
 [connection signal="timeout" from="RooSpawner/Timer" to="RooSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DesertSpawner/Timer" to="DesertSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DesertSpawner2/Timer" to="DesertSpawner2" method="_on_timer_timeout"]
+[connection signal="timeout" from="PowerpoleSpawner/Timer" to="PowerpoleSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="PowerpoleSpawner2/Timer" to="PowerpoleSpawner2" method="_on_timer_timeout"]
+[connection signal="area_shape_entered" from="outofbounds" to="BUS" method="_on_area_3d_area_shape_entered"]
+[connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_body_entered"]
