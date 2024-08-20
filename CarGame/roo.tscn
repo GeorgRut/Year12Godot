@@ -16,4 +16,4 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000289917, 1.19485, 0)
 shape = SubResource("BoxShape3D_i4k7j")
 
-[node name="Timer" type="Timer" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

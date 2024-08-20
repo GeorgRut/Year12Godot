@@ -144,6 +144,13 @@ script = ExtResource("9_tj1lj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="outofbounds"]
 shape = SubResource("BoxShape3D_xxv8f")
 
+[node name="outofbounds2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06131, 0.955606, 8.62661)
+script = ExtResource("9_tj1lj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="outofbounds2"]
+shape = SubResource("BoxShape3D_xxv8f")
+
 [connection signal="timeout" from="RooSpawner/Timer" to="RooSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DesertSpawner/Timer" to="DesertSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DesertSpawner2/Timer" to="DesertSpawner2" method="_on_timer_timeout"]
@@ -151,3 +158,5 @@ shape = SubResource("BoxShape3D_xxv8f")
 [connection signal="timeout" from="PowerpoleSpawner2/Timer" to="PowerpoleSpawner2" method="_on_timer_timeout"]
 [connection signal="area_shape_entered" from="outofbounds" to="BUS" method="_on_area_3d_area_shape_entered"]
 [connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_body_entered"]
+[connection signal="area_shape_entered" from="outofbounds2" to="BUS" method="_on_area_3d_area_shape_entered"]
+[connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_body_entered"]

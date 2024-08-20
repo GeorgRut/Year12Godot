@@ -1,9 +1,82 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjvf07ggin8d7"]
+[gd_scene load_steps=10 format=3 uid="uid://cjvf07ggin8d7"]
 
 [ext_resource type="PackedScene" uid="uid://cy8y2ap2li26m" path="res://Models/Bus.glb" id="1_abcuj"]
 [ext_resource type="Script" path="res://node_3d.gd" id="1_pl31i"]
+[ext_resource type="PackedScene" uid="uid://dkokl6ojgai2x" path="res://Models/BusWheel.glb" id="3_yeppi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_trld5"]
+size = Vector3(2.44559, 4.02722, 8.94232)
+
+[sub_resource type="Animation" id="Animation_d3wc4"]
+resource_name = "TurnRight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BusWheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -2.43219, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5d6lr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BusWheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2webm"]
+resource_name = "TurnLeft"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BusWheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -0.705549, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i2pjf"]
+resource_name = "Straight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BusWheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wclcb"]
+_data = {
+"RESET": SubResource("Animation_5d6lr"),
+"Straight": SubResource("Animation_i2pjf"),
+"TurnLeft": SubResource("Animation_2webm"),
+"TurnRight": SubResource("Animation_d3wc4")
+}
 
 [node name="BUS" type="CharacterBody3D"]
 script = ExtResource("1_pl31i")
@@ -12,7 +85,21 @@ script = ExtResource("1_pl31i")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.233939, 1.70815, 6.24018)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385962, 1.51361, 3.97116)
 shape = SubResource("BoxShape3D_trld5")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99, 1.958, 1.927)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925917, 1.40958, 1.27374)
+
+[node name="BusWheel" parent="Node3D" instance=ExtResource("3_yeppi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+libraries = {
+"": SubResource("AnimationLibrary_wclcb")
+}
+
+[editable path="Bus2"]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cy8y2ap2li26m"
-path="res://.godot/imported/Bus.glb-8ce194eda9cc38e2095e867d49bf9b45.scn"
+uid="uid://dkokl6ojgai2x"
+path="res://.godot/imported/BusWheel.glb-2585562739c7a4c3479b9112d02cf418.scn"
 
 [deps]
 
-source_file="res://Models/Bus.glb"
-dest_files=["res://.godot/imported/Bus.glb-8ce194eda9cc38e2095e867d49bf9b45.scn"]
+source_file="res://Models/BusWheel.glb"
+dest_files=["res://.godot/imported/BusWheel.glb-2585562739c7a4c3479b9112d02cf418.scn"]
 
 [params]
 
