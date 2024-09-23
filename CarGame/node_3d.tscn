@@ -7,9 +7,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_trld5"]
 size = Vector3(2.44559, 4.02722, 8.94232)
 
-[sub_resource type="Animation" id="Animation_d3wc4"]
-resource_name = "TurnRight"
-length = 0.5
+[sub_resource type="Animation" id="Animation_5d6lr"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,14 +16,15 @@ tracks/0/path = NodePath("BusWheel:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, -2.43219, 0)]
+"values": [Vector3(0, -1.5708, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_5d6lr"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_i2pjf"]
+resource_name = "Straight"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,8 +54,8 @@ tracks/0/keys = {
 "values": [Vector3(0, -1.5708, 0), Vector3(0, -0.705549, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_i2pjf"]
-resource_name = "Straight"
+[sub_resource type="Animation" id="Animation_d3wc4"]
+resource_name = "TurnRight"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -64,10 +64,10 @@ tracks/0/path = NodePath("BusWheel:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -1.5708, 0)]
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -2.43219, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wclcb"]
@@ -95,7 +95,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99, 1.958, 1.927)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925917, 1.40958, 1.27374)
 
 [node name="BusWheel" parent="Node3D" instance=ExtResource("3_yeppi")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
 libraries = {
