@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmdxomxr0xfk1"]
+[gd_scene load_steps=17 format=3 uid="uid://bmdxomxr0xfk1"]
 
 [ext_resource type="Texture2D" uid="uid://yrof6knkr8do" path="res://Scenes/syferfontein_18d_clear_2k.hdr" id="1_2e1bu"]
 [ext_resource type="PackedScene" uid="uid://cjvf07ggin8d7" path="res://node_3d.tscn" id="1_38m50"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://m3tqsl4tw60" path="res://Scenes/desert.tscn" id="6_dnp3s"]
 [ext_resource type="PackedScene" uid="uid://dnwscyof56ae4" path="res://Scenes/powerpole.tscn" id="8_74wt6"]
 [ext_resource type="Script" path="res://Area3D.gd" id="9_tj1lj"]
+[ext_resource type="Script" path="res://label.gd" id="10_dhpwq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q5j4j"]
 panorama = ExtResource("1_2e1bu")
@@ -150,6 +151,17 @@ script = ExtResource("9_tj1lj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="outofbounds2"]
 shape = SubResource("BoxShape3D_xxv8f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 829.0
+offset_top = 577.0
+offset_right = 1090.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(0.230315, 0.230315, 0.230315, 1)
+theme_override_font_sizes/font_size = 36
+script = ExtResource("10_dhpwq")
 
 [connection signal="timeout" from="RooSpawner/Timer" to="RooSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="DesertSpawner/Timer" to="DesertSpawner" method="_on_timer_timeout"]
